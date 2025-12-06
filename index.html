@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wendehasen Fega - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --success-color: #10b981;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid white;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            font-size: 5rem;
+            color: var(--gray-color);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--gray-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            color: var(--dark-color);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray-color);
+        }
+
+        .personal-info {
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            min-width: 150px;
+            color: var(--dark-color);
+        }
+
+        .info-value {
+            color: var(--gray-color);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-color);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .project-content p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Photo Upload Section */
+        .photo-upload-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .photo-upload-section h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #photoUpload {
+            padding: 10px;
+            border: 1px dashed var(--primary-color);
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .upload-btn {
+            padding: 10px 20px;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .upload-btn:hover {
+            background-color: #0da271;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.2rem;
+            }
+
+            .social-links {
+                gap: 15px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Port<span>folio</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-photo" id="profilePhoto">
+                    <img src="c:\Users\yohannes\Pictures\photo1.jpg" alt=""  width="300px">
+                    <!-- This is where the profile photo will be displayed -->
+                    <!-- <div class="photo-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div> -->
+                </div>
+                
+                <div class="hero-content">
+                    <h1>Wendehasen Fega</h1>
+                    <div class="title">Full Stack Web Developer</div>
+                    <p>3rd Year Computer Science student at Wachemo University passionate about creating innovative web solutions and exploring cutting-edge technologies.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@wendehasen" target="_blank" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://t.me/wendehasen" target="_blank" class="social-icon">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="mailto:wendefega@gmail.com" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+           
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hello! I'm Wendehasen Fega</h3>
+                    <p>I am a passionate 3rd year Computer Science student at Wachemo University, currently in my second semester. My journey in technology began with a curiosity about how websites and applications work, which has grown into a deep passion for full-stack web development.</p>
+                    <p>My goal is to become a proficient full-stack developer, capable of building complete, scalable web applications from front-end to back-end. I'm constantly learning new technologies and improving my skills to stay current in this fast-evolving field.</p>
+                    <p>When I'm not coding, I enjoy exploring new frameworks, contributing to open-source projects, and collaborating with other developers to solve real-world problems through technology.</p>
+                    
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <div class="info-label">University:</div>
+                            <div class="info-value">Wachemo University</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Program:</div>
+                            <div class="info-value">B.Sc. in Computer Science</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Year:</div>
+                            <div class="info-value">3rd Year, 2nd Semester</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Location:</div>
+                            <div class="info-value">Ethiopia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h3>My Passion & Goals</h3>
+                    <p>I am deeply passionate about web technologies and their potential to transform businesses and improve lives. My current focus is on mastering the MERN stack (MongoDB, Express.js, React, Node.js) while also strengthening my foundations in traditional web technologies.</p>
+                    <p>In the next year, I aim to:</p>
+                    <ul style="padding-left: 20px; color: var(--gray-color); margin-bottom: 20px;">
+                        <li>Complete my degree with distinction</li>
+                        <li>Build at least 5 full-stack projects for my portfolio</li>
+                        <li>Contribute to open-source projects</li>
+                        <li>Secure an internship as a full-stack developer</li>
+                        <li>Master React and Node.js for building scalable applications</li>
+                    </ul>
+                    <p>I believe in continuous learning and am always open to new challenges that push my boundaries as a developer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f0f9ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML5</h3>
+                    <p>Proficient in semantic HTML5 markup, creating well-structured and accessible web pages.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3>CSS3</h3>
+                    <p>Experienced with modern CSS including Flexbox, Grid, animations, and responsive design principles.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Strong understanding of vanilla JavaScript, ES6+ features, DOM manipulation, and asynchronous programming.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>MySQL</h3>
+                    <p>Skilled in database design, SQL queries, normalization, and managing relational databases.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-php"></i>
+                    </div>
+                    <h3>PHP</h3>
+                    <p>Experience in server-side scripting, connecting web applications to databases, and building dynamic websites.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Object-Oriented Programming</h3>
+                    <p>Solid understanding of OOP principles and applying them in various programming languages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Restaurant Management System</h3>
+                        <p>A comprehensive system for managing restaurant operations including orders, inventory, billing, and customer management.</p>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        
+                        <p><strong>Features:</strong> Order tracking, inventory management, billing system, customer database, admin dashboard</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Hospital Management System</h3>
+                        <p>A complete hospital management solution built using Object-Oriented Programming principles to handle patient records, appointments, and staff management.</p>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">OOP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Swing GUI</span>
+                        </div>
+                        
+                        <p><strong>Features:</strong> Patient registration, appointment scheduling, medical records, staff management, billing system</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Website</h3>
+                        <p>A fully functional online store with product catalog, shopping cart, user authentication, and payment integration.</p>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        
+                        <p><strong>Features:</strong> User authentication, product catalog, shopping cart, order management, admin panel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>wendefega@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Numbers</h3>
+                            <p>Ethio Telecom: +251 926704697</p>
+                            <p>Safaricom: +254 704440868</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Education</h3>
+                            <p>Wachemo University</p>
+                            <p>B.Sc. Computer Science, 3rd Year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Ethiopia</p>
+                            <p>Available for remote work & collaborations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">Wendehasen<span>Fega</span></a>
+                
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@wendehasen" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://t.me/wendehasen" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="mailto:wendefega@gmail.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Wendehasen Fega. All Rights Reserved.</p>
+                <p>Computer Science Student | Aspiring Full Stack Developer</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Photo Upload Functionality
+        const photoUpload = document.getElementById('photoUpload');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const profilePhoto = document.getElementById('profilePhoto');
+        
+        uploadBtn.addEventListener('click', () => {
+            const file = photoUpload.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    // Create image element
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Profile Photo';
+                    
+                    // Clear the placeholder and set the new image
+                    profilePhoto.innerHTML = '';
+                    profilePhoto.appendChild(img);
+                    
+                    // Show success message
+                    alert('Profile photo uploaded successfully!');
+                };
+                
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select a photo to upload.');
+            }
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For this demo, we'll just show an alert
+            alert(`Thank you ${name}! Your message has been received. I'll get back to you at ${email} as soon as possible.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
